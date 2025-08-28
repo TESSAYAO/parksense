@@ -1,0 +1,47 @@
+{
+  "name": "parksense",
+  "version": "1.0.0",
+  "description": "A smart park navigation application for calmer walks with minimal screen time",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve . -p 8000",
+    "start": "npm run dev",
+    "build": "echo 'Building static site...' && mkdir -p build && cp -r . build/ && echo 'Build complete'",
+    "preview": "npm run build && npx serve build -p 8080",
+    "lint": "echo 'Linting not configured yet'",
+    "test": "echo 'Tests not configured yet'"
+  },
+  "keywords": [
+    "park",
+    "navigation",
+    "wildlife",
+    "walking",
+    "nature",
+    "mapping",
+    "leaflet",
+    "geojson",
+    "pwa"
+  ],
+  "author": "ParkSense Team",
+  "license": "MIT",
+  "homepage": "https://github.com/your-username/parksen#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/parksen.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/parksen/issues"
+  },
+  "devDependencies": {
+    "serve": "^14.2.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
+}

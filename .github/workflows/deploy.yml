@@ -1,0 +1,69 @@
+name: Deploy ParkSense to GitHub Pages
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Build site
+        run: |
+          # Copy main files to build directory
+          mkdir -p build
+          cp index.html build/
+          cp bg.jpg build/
+          cp -r js build/
+          
+          # Copy data files with proper structure
+          mkdir -p build/local-nav/local-nav/park-data/park-data
+          cp -r local-nav/local-nav/park-data/park-data/*.geojson build/local-nav/local-nav/park-data/park-data/
+          cp -r local-nav/local-nav/park-data/park-data/部分区域实际图片预览 build/local-nav/local-nav/park-data/park-data/ 2>/dev/null || true
+          
+          # Copy prototype files
+          mkdir -p build/prototype
+          cp 地图功能原型/parksense-web-debug-clean.html build/prototype/index.html
+          cp -r 地图功能原型/js build/prototype/
+          
+          # Create a simple index page if needed
+          echo "Build completed successfully"
+          ls -la build/
+          
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./build
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
