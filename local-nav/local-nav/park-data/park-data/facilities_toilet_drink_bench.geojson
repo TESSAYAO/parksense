@@ -1,0 +1,997 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2025-08-20T13:52:45Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/65489538",
+        "addr:city": "London",
+        "addr:street": "The Mall",
+        "amenity": "cafe",
+        "building": "yes",
+        "building:levels": "1",
+        "check_date": "2025-03-16",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "fhrs:confidence_management": "10",
+        "fhrs:hygiene": "5",
+        "fhrs:id": "414534",
+        "fhrs:local_authority_id": "04/00322/COMM",
+        "fhrs:rating": "3",
+        "fhrs:structural": "10",
+        "indoor_seating": "yes",
+        "name": "St. James’s Café",
+        "opening_hours": "Mo-Su 08:30-15:00",
+        "operator": "Benugo",
+        "outdoor_seating": "yes",
+        "source:addr": "FSA Food Hygiene Ratings Database",
+        "takeaway": "yes",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "toilets:wheelchair": "yes",
+        "website": "https://www.royalparks.org.uk/visit/parks/st-jamess-park/st-jamess-cafe",
+        "wheelchair": "yes",
+        "wheelchair:description": "Step-free entrance and outside seating area."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1317977,
+              51.5040173
+            ],
+            [
+              -0.1317747,
+              51.5039265
+            ],
+            [
+              -0.1317912,
+              51.5038464
+            ],
+            [
+              -0.1318391,
+              51.503756
+            ],
+            [
+              -0.1319592,
+              51.5036974
+            ],
+            [
+              -0.1319544,
+              51.5036816
+            ],
+            [
+              -0.1319494,
+              51.5036652
+            ],
+            [
+              -0.1317624,
+              51.5036849
+            ],
+            [
+              -0.1316802,
+              51.5037412
+            ],
+            [
+              -0.1316472,
+              51.5037691
+            ],
+            [
+              -0.1316187,
+              51.5037994
+            ],
+            [
+              -0.1315642,
+              51.5038673
+            ],
+            [
+              -0.131523,
+              51.5039348
+            ],
+            [
+              -0.1315065,
+              51.5039842
+            ],
+            [
+              -0.1315005,
+              51.504008
+            ],
+            [
+              -0.1314975,
+              51.5040336
+            ],
+            [
+              -0.131511,
+              51.5040499
+            ],
+            [
+              -0.1315327,
+              51.5040569
+            ],
+            [
+              -0.1315694,
+              51.5040601
+            ],
+            [
+              -0.1318029,
+              51.5040485
+            ],
+            [
+              -0.1317977,
+              51.5040173
+            ]
+          ]
+        ]
+      },
+      "id": "way/65489538"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/374953468",
+        "amenity": "cafe",
+        "building": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1391166,
+              51.5019227
+            ],
+            [
+              -0.139077,
+              51.5018379
+            ],
+            [
+              -0.1390335,
+              51.5018457
+            ],
+            [
+              -0.1390234,
+              51.5018618
+            ],
+            [
+              -0.1390299,
+              51.5018758
+            ],
+            [
+              -0.1390364,
+              51.5018897
+            ],
+            [
+              -0.1390429,
+              51.5019036
+            ],
+            [
+              -0.1390517,
+              51.5019225
+            ],
+            [
+              -0.1390761,
+              51.50193
+            ],
+            [
+              -0.1391166,
+              51.5019227
+            ]
+          ]
+        ]
+      },
+      "id": "way/374953468"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/374959168",
+        "access": "no",
+        "addr:city": "London",
+        "addr:street": "The Mall",
+        "amenity": "toilets",
+        "building": "yes",
+        "changing_table": "yes",
+        "charge": "0.20",
+        "fee": "yes",
+        "female": "yes",
+        "male": "yes",
+        "payment:apple_pay": "yes",
+        "payment:cash": "no",
+        "payment:google_pay": "yes",
+        "payment:paywave": "yes",
+        "survey:date": "2024-11-03",
+        "toilets:disposal": "flush",
+        "toilets:wheelchair": "yes",
+        "wheelchair": "yes",
+        "wheelchair:description": "Combined accessible toilet and baby change, limited space. Staff available to open with Radar key during peak periods."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1360052,
+              51.5032284
+            ],
+            [
+              -0.1358728,
+              51.5032839
+            ],
+            [
+              -0.1358661,
+              51.5032778
+            ],
+            [
+              -0.1358326,
+              51.5032918
+            ],
+            [
+              -0.1358876,
+              51.5033425
+            ],
+            [
+              -0.1359219,
+              51.5033281
+            ],
+            [
+              -0.1359166,
+              51.5033232
+            ],
+            [
+              -0.136049,
+              51.5032677
+            ],
+            [
+              -0.1360548,
+              51.5032731
+            ],
+            [
+              -0.1360883,
+              51.503259
+            ],
+            [
+              -0.1360334,
+              51.5032083
+            ],
+            [
+              -0.135999,
+              51.5032227
+            ],
+            [
+              -0.1360052,
+              51.5032284
+            ]
+          ]
+        ]
+      },
+      "id": "way/374959168"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/374959172",
+        "amenity": "cafe",
+        "building": "yes",
+        "indoor_seating": "no",
+        "name": "Malborough Gate Kiosk",
+        "opening_hours": "Mo-Su 09:30-16:00",
+        "outdoor_seating": "no",
+        "toilets:wheelchair": "yes",
+        "wheelchair": "yes",
+        "wheelchair:description": "High counter, take away only, no seating. Deckchairs available (charge) on grass area opposite. Accessible toilets 10m to north."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1357363,
+              51.5032091
+            ],
+            [
+              -0.1357209,
+              51.5031712
+            ],
+            [
+              -0.135793,
+              51.5031599
+            ],
+            [
+              -0.1358017,
+              51.5031814
+            ],
+            [
+              -0.1358333,
+              51.5031765
+            ],
+            [
+              -0.1358172,
+              51.5031371
+            ],
+            [
+              -0.1356621,
+              51.5031615
+            ],
+            [
+              -0.1356847,
+              51.5032172
+            ],
+            [
+              -0.1357363,
+              51.5032091
+            ]
+          ]
+        ]
+      },
+      "id": "way/374959172"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/542451755",
+        "amenity": "cafe",
+        "building": "yes",
+        "building:levels": "1",
+        "name": "Colicci Hotdogs",
+        "opening_hours": "Mo-Su 09:00-19:00",
+        "takeaway": "only"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1310171,
+              51.5052178
+            ],
+            [
+              -0.1310511,
+              51.5052165
+            ],
+            [
+              -0.1310655,
+              51.5052057
+            ],
+            [
+              -0.1310613,
+              51.5051622
+            ],
+            [
+              -0.1310119,
+              51.505164
+            ],
+            [
+              -0.1310171,
+              51.5052178
+            ]
+          ]
+        ]
+      },
+      "id": "way/542451755"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/887536597",
+        "amenity": "toilets",
+        "building": "toilets",
+        "fee": "yes",
+        "payment:apple_pay": "yes",
+        "payment:cash": "yes",
+        "payment:google_pay": "yes",
+        "payment:paywave": "yes",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1301257,
+              51.5048538
+            ],
+            [
+              -0.1301861,
+              51.5048229
+            ],
+            [
+              -0.1301004,
+              51.5047578
+            ],
+            [
+              -0.13004,
+              51.5047887
+            ],
+            [
+              -0.1301257,
+              51.5048538
+            ]
+          ]
+        ]
+      },
+      "id": "way/887536597"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1504407938",
+        "amenity": "drinking_water",
+        "fountain": "bubbler",
+        "maintenance": "ok",
+        "wheelchair": "yes",
+        "wheelchair:description": "Besides asphalt path, \"drinking fountain and basin\" type with push button tap."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1359286,
+          51.5032412
+        ]
+      },
+      "id": "node/1504407938"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3783410340",
+        "amenity": "bench",
+        "backrest": "yes",
+        "check_date": "2021-04-20"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1391387,
+          51.5016614
+        ]
+      },
+      "id": "node/3783410340"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6209023205",
+        "amenity": "bench",
+        "backrest": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.133167,
+          51.5031697
+        ]
+      },
+      "id": "node/6209023205"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6209023206",
+        "amenity": "bench",
+        "backrest": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1331039,
+          51.5031748
+        ]
+      },
+      "id": "node/6209023206"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6209023208",
+        "amenity": "bench",
+        "backrest": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1328064,
+          51.5032077
+        ]
+      },
+      "id": "node/6209023208"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6209023209",
+        "amenity": "bench",
+        "backrest": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1327733,
+          51.5032169
+        ]
+      },
+      "id": "node/6209023209"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6209023210",
+        "amenity": "bench",
+        "backrest": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1327082,
+          51.50323
+        ]
+      },
+      "id": "node/6209023210"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6209023211",
+        "amenity": "bench",
+        "backrest": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1326053,
+          51.5032577
+        ]
+      },
+      "id": "node/6209023211"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6209023212",
+        "amenity": "bench",
+        "backrest": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1325093,
+          51.5032866
+        ]
+      },
+      "id": "node/6209023212"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6209023213",
+        "amenity": "bench",
+        "backrest": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1322123,
+          51.5034047
+        ]
+      },
+      "id": "node/6209023213"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6209023214",
+        "amenity": "bench",
+        "backrest": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1321795,
+          51.5034206
+        ]
+      },
+      "id": "node/6209023214"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6209023217",
+        "amenity": "bench",
+        "backrest": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1317582,
+          51.5036821
+        ]
+      },
+      "id": "node/6209023217"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6209023218",
+        "amenity": "bench",
+        "backrest": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1317129,
+          51.5037108
+        ]
+      },
+      "id": "node/6209023218"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6209023219",
+        "amenity": "bench",
+        "backrest": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1316779,
+          51.5037366
+        ]
+      },
+      "id": "node/6209023219"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6209023220",
+        "amenity": "bench",
+        "backrest": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1316402,
+          51.5037677
+        ]
+      },
+      "id": "node/6209023220"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6209023221",
+        "amenity": "bench",
+        "backrest": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1315861,
+          51.5038281
+        ]
+      },
+      "id": "node/6209023221"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6209023222",
+        "amenity": "bench",
+        "backrest": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1315514,
+          51.5038677
+        ]
+      },
+      "id": "node/6209023222"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6209023223",
+        "amenity": "bench",
+        "backrest": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1315404,
+          51.5038914
+        ]
+      },
+      "id": "node/6209023223"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6209023224",
+        "amenity": "bench",
+        "backrest": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1315175,
+          51.503928
+        ]
+      },
+      "id": "node/6209023224"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6795663397",
+        "amenity": "cafe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1380114,
+          51.5010712
+        ]
+      },
+      "id": "node/6795663397"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6795663398",
+        "amenity": "toilets",
+        "child": "only",
+        "fee": "no",
+        "female": "yes",
+        "male": "yes",
+        "supervised": "yes",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1380452,
+          51.5011353
+        ]
+      },
+      "id": "node/6795663398"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6795663399",
+        "amenity": "drinking_water",
+        "fountain": "bubbler"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1379739,
+          51.5011774
+        ]
+      },
+      "id": "node/6795663399"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9963703317",
+        "amenity": "bench",
+        "backrest": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1353993,
+          51.5019173
+        ]
+      },
+      "id": "node/9963703317"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9963703318",
+        "amenity": "bench",
+        "backrest": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1354669,
+          51.5019099
+        ]
+      },
+      "id": "node/9963703318"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11264428271",
+        "amenity": "toilets",
+        "charge": "0.20",
+        "fee": "yes",
+        "payment:credit_cards": "yes",
+        "survey:date": "2024-11-03",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1360057,
+          51.5032889
+        ]
+      },
+      "id": "node/11264428271"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12180264102",
+        "amenity": "bench",
+        "outdoor_seating": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.130999,
+          51.5021387
+        ]
+      },
+      "id": "node/12180264102"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12180315901",
+        "amenity": "bench",
+        "outdoor_seating": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1314404,
+          51.502123
+        ]
+      },
+      "id": "node/12180315901"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12453482454",
+        "amenity": "bench",
+        "backrest": "yes",
+        "material": "dřevobanqueting_house"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1367271,
+          51.5023459
+        ]
+      },
+      "id": "node/12453482454"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12453482455",
+        "amenity": "bench",
+        "backrest": "yes",
+        "material": "dřevobanqueting_house"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1368239,
+          51.5023205
+        ]
+      },
+      "id": "node/12453482455"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12453482456",
+        "amenity": "bench",
+        "backrest": "yes",
+        "material": "dřevobanqueting_house"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.136851,
+          51.5023148
+        ]
+      },
+      "id": "node/12453482456"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12453482457",
+        "amenity": "bench",
+        "backrest": "yes",
+        "material": "dřevobanqueting_house"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1384245,
+          51.5018681
+        ]
+      },
+      "id": "node/12453482457"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12453482458",
+        "amenity": "bench",
+        "backrest": "yes",
+        "material": "dřevobanqueting_house"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1384559,
+          51.5018596
+        ]
+      },
+      "id": "node/12453482458"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12453482459",
+        "amenity": "bench",
+        "backrest": "yes",
+        "material": "dřevobanqueting_house"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1384917,
+          51.5018523
+        ]
+      },
+      "id": "node/12453482459"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12453482460",
+        "amenity": "bench",
+        "backrest": "yes",
+        "material": "dřevobanqueting_house"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1385182,
+          51.5018481
+        ]
+      },
+      "id": "node/12453482460"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13037832782",
+        "amenity": "cafe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1300789,
+          51.5014564
+        ]
+      },
+      "id": "node/13037832782"
+    }
+  ]
+}

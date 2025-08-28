@@ -1,0 +1,63 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2025-08-20T13:46:30Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/374959166",
+        "barrier": "gate"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -0.1358956,
+            51.5034975
+          ],
+          [
+            -0.1358678,
+            51.5035088
+          ],
+          [
+            -0.13584,
+            51.5035202
+          ]
+        ]
+      },
+      "id": "way/374959166"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3783413820",
+        "barrier": "gate"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1358678,
+          51.5035088
+        ]
+      },
+      "id": "node/3783413820"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3783413823",
+        "barrier": "gate"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.135794,
+          51.5035389
+        ]
+      },
+      "id": "node/3783413823"
+    }
+  ]
+}

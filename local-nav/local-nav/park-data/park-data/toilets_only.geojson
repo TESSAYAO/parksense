@@ -1,0 +1,106 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2025-08-20T13:44:30Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/374959168",
+        "access": "no",
+        "addr:city": "London",
+        "addr:street": "The Mall",
+        "amenity": "toilets",
+        "building": "yes",
+        "changing_table": "yes",
+        "charge": "0.20",
+        "fee": "yes",
+        "female": "yes",
+        "male": "yes",
+        "payment:apple_pay": "yes",
+        "payment:cash": "no",
+        "payment:google_pay": "yes",
+        "payment:paywave": "yes",
+        "survey:date": "2024-11-03",
+        "toilets:disposal": "flush",
+        "toilets:wheelchair": "yes",
+        "wheelchair": "yes",
+        "wheelchair:description": "Combined accessible toilet and baby change, limited space. Staff available to open with Radar key during peak periods.",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1359605,
+          51.5032754
+        ]
+      },
+      "id": "way/374959168"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/887536597",
+        "amenity": "toilets",
+        "building": "toilets",
+        "fee": "yes",
+        "payment:apple_pay": "yes",
+        "payment:cash": "yes",
+        "payment:google_pay": "yes",
+        "payment:paywave": "yes",
+        "wheelchair": "no",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1301131,
+          51.5048058
+        ]
+      },
+      "id": "way/887536597"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6795663398",
+        "amenity": "toilets",
+        "child": "only",
+        "fee": "no",
+        "female": "yes",
+        "male": "yes",
+        "supervised": "yes",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1380452,
+          51.5011353
+        ]
+      },
+      "id": "node/6795663398"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11264428271",
+        "amenity": "toilets",
+        "charge": "0.20",
+        "fee": "yes",
+        "payment:credit_cards": "yes",
+        "survey:date": "2024-11-03",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1360057,
+          51.5032889
+        ]
+      },
+      "id": "node/11264428271"
+    }
+  ]
+}

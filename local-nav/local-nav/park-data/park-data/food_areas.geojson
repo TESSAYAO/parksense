@@ -1,0 +1,322 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2025-08-20T14:15:30Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/65489538",
+        "addr:city": "London",
+        "addr:street": "The Mall",
+        "amenity": "cafe",
+        "building": "yes",
+        "building:levels": "1",
+        "check_date": "2025-03-16",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "fhrs:confidence_management": "10",
+        "fhrs:hygiene": "5",
+        "fhrs:id": "414534",
+        "fhrs:local_authority_id": "04/00322/COMM",
+        "fhrs:rating": "3",
+        "fhrs:structural": "10",
+        "indoor_seating": "yes",
+        "name": "St. James’s Café",
+        "opening_hours": "Mo-Su 08:30-15:00",
+        "operator": "Benugo",
+        "outdoor_seating": "yes",
+        "source:addr": "FSA Food Hygiene Ratings Database",
+        "takeaway": "yes",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "toilets:wheelchair": "yes",
+        "website": "https://www.royalparks.org.uk/visit/parks/st-jamess-park/st-jamess-cafe",
+        "wheelchair": "yes",
+        "wheelchair:description": "Step-free entrance and outside seating area."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1317977,
+              51.5040173
+            ],
+            [
+              -0.1317747,
+              51.5039265
+            ],
+            [
+              -0.1317912,
+              51.5038464
+            ],
+            [
+              -0.1318391,
+              51.503756
+            ],
+            [
+              -0.1319592,
+              51.5036974
+            ],
+            [
+              -0.1319544,
+              51.5036816
+            ],
+            [
+              -0.1319494,
+              51.5036652
+            ],
+            [
+              -0.1317624,
+              51.5036849
+            ],
+            [
+              -0.1316802,
+              51.5037412
+            ],
+            [
+              -0.1316472,
+              51.5037691
+            ],
+            [
+              -0.1316187,
+              51.5037994
+            ],
+            [
+              -0.1315642,
+              51.5038673
+            ],
+            [
+              -0.131523,
+              51.5039348
+            ],
+            [
+              -0.1315065,
+              51.5039842
+            ],
+            [
+              -0.1315005,
+              51.504008
+            ],
+            [
+              -0.1314975,
+              51.5040336
+            ],
+            [
+              -0.131511,
+              51.5040499
+            ],
+            [
+              -0.1315327,
+              51.5040569
+            ],
+            [
+              -0.1315694,
+              51.5040601
+            ],
+            [
+              -0.1318029,
+              51.5040485
+            ],
+            [
+              -0.1317977,
+              51.5040173
+            ]
+          ]
+        ]
+      },
+      "id": "way/65489538"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/374953468",
+        "amenity": "cafe",
+        "building": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1391166,
+              51.5019227
+            ],
+            [
+              -0.139077,
+              51.5018379
+            ],
+            [
+              -0.1390335,
+              51.5018457
+            ],
+            [
+              -0.1390234,
+              51.5018618
+            ],
+            [
+              -0.1390299,
+              51.5018758
+            ],
+            [
+              -0.1390364,
+              51.5018897
+            ],
+            [
+              -0.1390429,
+              51.5019036
+            ],
+            [
+              -0.1390517,
+              51.5019225
+            ],
+            [
+              -0.1390761,
+              51.50193
+            ],
+            [
+              -0.1391166,
+              51.5019227
+            ]
+          ]
+        ]
+      },
+      "id": "way/374953468"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/374959172",
+        "amenity": "cafe",
+        "building": "yes",
+        "indoor_seating": "no",
+        "name": "Malborough Gate Kiosk",
+        "opening_hours": "Mo-Su 09:30-16:00",
+        "outdoor_seating": "no",
+        "toilets:wheelchair": "yes",
+        "wheelchair": "yes",
+        "wheelchair:description": "High counter, take away only, no seating. Deckchairs available (charge) on grass area opposite. Accessible toilets 10m to north."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1357363,
+              51.5032091
+            ],
+            [
+              -0.1357209,
+              51.5031712
+            ],
+            [
+              -0.135793,
+              51.5031599
+            ],
+            [
+              -0.1358017,
+              51.5031814
+            ],
+            [
+              -0.1358333,
+              51.5031765
+            ],
+            [
+              -0.1358172,
+              51.5031371
+            ],
+            [
+              -0.1356621,
+              51.5031615
+            ],
+            [
+              -0.1356847,
+              51.5032172
+            ],
+            [
+              -0.1357363,
+              51.5032091
+            ]
+          ]
+        ]
+      },
+      "id": "way/374959172"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/542451755",
+        "amenity": "cafe",
+        "building": "yes",
+        "building:levels": "1",
+        "name": "Colicci Hotdogs",
+        "opening_hours": "Mo-Su 09:00-19:00",
+        "takeaway": "only"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1310171,
+              51.5052178
+            ],
+            [
+              -0.1310511,
+              51.5052165
+            ],
+            [
+              -0.1310655,
+              51.5052057
+            ],
+            [
+              -0.1310613,
+              51.5051622
+            ],
+            [
+              -0.1310119,
+              51.505164
+            ],
+            [
+              -0.1310171,
+              51.5052178
+            ]
+          ]
+        ]
+      },
+      "id": "way/542451755"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6795663397",
+        "amenity": "cafe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1380114,
+          51.5010712
+        ]
+      },
+      "id": "node/6795663397"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13037832782",
+        "amenity": "cafe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1300789,
+          51.5014564
+        ]
+      },
+      "id": "node/13037832782"
+    }
+  ]
+}

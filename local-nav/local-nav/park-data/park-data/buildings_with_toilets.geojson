@@ -1,0 +1,1243 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2025-08-20T13:56:51Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/65489513",
+        "building": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1312199,
+              51.5031076
+            ],
+            [
+              -0.1309904,
+              51.5031283
+            ],
+            [
+              -0.1310009,
+              51.5031732
+            ],
+            [
+              -0.1312304,
+              51.5031525
+            ],
+            [
+              -0.1312199,
+              51.5031076
+            ]
+          ]
+        ]
+      },
+      "id": "way/65489513"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/65489536",
+        "building": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1307398,
+              51.5031283
+            ],
+            [
+              -0.1305815,
+              51.503101
+            ],
+            [
+              -0.1305282,
+              51.503221
+            ],
+            [
+              -0.1306224,
+              51.5032372
+            ],
+            [
+              -0.1306374,
+              51.5032034
+            ],
+            [
+              -0.130678,
+              51.5032104
+            ],
+            [
+              -0.1306916,
+              51.5031799
+            ],
+            [
+              -0.130715,
+              51.5031839
+            ],
+            [
+              -0.1307398,
+              51.5031283
+            ]
+          ]
+        ]
+      },
+      "id": "way/65489536"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/65489538",
+        "addr:city": "London",
+        "addr:street": "The Mall",
+        "amenity": "cafe",
+        "building": "yes",
+        "building:levels": "1",
+        "check_date": "2025-03-16",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "fhrs:confidence_management": "10",
+        "fhrs:hygiene": "5",
+        "fhrs:id": "414534",
+        "fhrs:local_authority_id": "04/00322/COMM",
+        "fhrs:rating": "3",
+        "fhrs:structural": "10",
+        "indoor_seating": "yes",
+        "name": "St. James’s Café",
+        "opening_hours": "Mo-Su 08:30-15:00",
+        "operator": "Benugo",
+        "outdoor_seating": "yes",
+        "source:addr": "FSA Food Hygiene Ratings Database",
+        "takeaway": "yes",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "toilets:wheelchair": "yes",
+        "website": "https://www.royalparks.org.uk/visit/parks/st-jamess-park/st-jamess-cafe",
+        "wheelchair": "yes",
+        "wheelchair:description": "Step-free entrance and outside seating area."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1317977,
+              51.5040173
+            ],
+            [
+              -0.1317747,
+              51.5039265
+            ],
+            [
+              -0.1317912,
+              51.5038464
+            ],
+            [
+              -0.1318391,
+              51.503756
+            ],
+            [
+              -0.1319592,
+              51.5036974
+            ],
+            [
+              -0.1319544,
+              51.5036816
+            ],
+            [
+              -0.1319494,
+              51.5036652
+            ],
+            [
+              -0.1317624,
+              51.5036849
+            ],
+            [
+              -0.1316802,
+              51.5037412
+            ],
+            [
+              -0.1316472,
+              51.5037691
+            ],
+            [
+              -0.1316187,
+              51.5037994
+            ],
+            [
+              -0.1315642,
+              51.5038673
+            ],
+            [
+              -0.131523,
+              51.5039348
+            ],
+            [
+              -0.1315065,
+              51.5039842
+            ],
+            [
+              -0.1315005,
+              51.504008
+            ],
+            [
+              -0.1314975,
+              51.5040336
+            ],
+            [
+              -0.131511,
+              51.5040499
+            ],
+            [
+              -0.1315327,
+              51.5040569
+            ],
+            [
+              -0.1315694,
+              51.5040601
+            ],
+            [
+              -0.1318029,
+              51.5040485
+            ],
+            [
+              -0.1317977,
+              51.5040173
+            ]
+          ]
+        ]
+      },
+      "id": "way/65489538"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/159660905",
+        "building": "yes",
+        "leisure": "bandstand"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1349063,
+              51.5031192
+            ],
+            [
+              -0.1348962,
+              51.5031381
+            ],
+            [
+              -0.1348961,
+              51.5031581
+            ],
+            [
+              -0.134906,
+              51.5031771
+            ],
+            [
+              -0.134925,
+              51.5031932
+            ],
+            [
+              -0.1349511,
+              51.5032048
+            ],
+            [
+              -0.1349817,
+              51.5032108
+            ],
+            [
+              -0.1350138,
+              51.5032105
+            ],
+            [
+              -0.1350441,
+              51.503204
+            ],
+            [
+              -0.1350696,
+              51.5031919
+            ],
+            [
+              -0.1350879,
+              51.5031755
+            ],
+            [
+              -0.1350964,
+              51.5031587
+            ],
+            [
+              -0.1350971,
+              51.5031412
+            ],
+            [
+              -0.1350901,
+              51.5031242
+            ],
+            [
+              -0.1350758,
+              51.503109
+            ],
+            [
+              -0.1350554,
+              51.5030969
+            ],
+            [
+              -0.1350303,
+              51.5030888
+            ],
+            [
+              -0.1350027,
+              51.5030853
+            ],
+            [
+              -0.1349746,
+              51.5030866
+            ],
+            [
+              -0.1349481,
+              51.5030927
+            ],
+            [
+              -0.1349254,
+              51.5031031
+            ],
+            [
+              -0.1349063,
+              51.5031192
+            ]
+          ]
+        ]
+      },
+      "id": "way/159660905"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/162513946",
+        "addr:city": "London",
+        "addr:housename": "Storeys Gate Lodge",
+        "addr:postcode": "SW1H 9JJ",
+        "addr:street": "Birdcage Walk",
+        "architect": "Office of Works",
+        "building": "yes",
+        "building:colour": "light_brown",
+        "building:levels": "1",
+        "building:material": "brick",
+        "description": "https://historicengland.org.uk/listing/the-list/list-entry/1218590",
+        "historic": "building",
+        "name": "Storey's Gate Lodge",
+        "roof:colour": "grey",
+        "source": "Bing",
+        "source:addr:postcode": "code-point_open",
+        "start_date": "1840",
+        "wikidata": "Q27080654"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1301044,
+              51.5014757
+            ],
+            [
+              -0.1301206,
+              51.5013927
+            ],
+            [
+              -0.1300282,
+              51.5013857
+            ],
+            [
+              -0.130012,
+              51.5014687
+            ],
+            [
+              -0.1301044,
+              51.5014757
+            ]
+          ]
+        ]
+      },
+      "id": "way/162513946"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/374953468",
+        "amenity": "cafe",
+        "building": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1391166,
+              51.5019227
+            ],
+            [
+              -0.139077,
+              51.5018379
+            ],
+            [
+              -0.1390335,
+              51.5018457
+            ],
+            [
+              -0.1390234,
+              51.5018618
+            ],
+            [
+              -0.1390299,
+              51.5018758
+            ],
+            [
+              -0.1390364,
+              51.5018897
+            ],
+            [
+              -0.1390429,
+              51.5019036
+            ],
+            [
+              -0.1390517,
+              51.5019225
+            ],
+            [
+              -0.1390761,
+              51.50193
+            ],
+            [
+              -0.1391166,
+              51.5019227
+            ]
+          ]
+        ]
+      },
+      "id": "way/374953468"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/374958396",
+        "building": "kiosk",
+        "cuisine": "ice_cream"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1348222,
+              51.5028668
+            ],
+            [
+              -0.134801,
+              51.502849
+            ],
+            [
+              -0.1347837,
+              51.5028571
+            ],
+            [
+              -0.1347657,
+              51.5028654
+            ],
+            [
+              -0.1347869,
+              51.5028831
+            ],
+            [
+              -0.1348222,
+              51.5028668
+            ]
+          ]
+        ]
+      },
+      "id": "way/374958396"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/374959168",
+        "access": "no",
+        "addr:city": "London",
+        "addr:street": "The Mall",
+        "amenity": "toilets",
+        "building": "yes",
+        "changing_table": "yes",
+        "charge": "0.20",
+        "fee": "yes",
+        "female": "yes",
+        "male": "yes",
+        "payment:apple_pay": "yes",
+        "payment:cash": "no",
+        "payment:google_pay": "yes",
+        "payment:paywave": "yes",
+        "survey:date": "2024-11-03",
+        "toilets:disposal": "flush",
+        "toilets:wheelchair": "yes",
+        "wheelchair": "yes",
+        "wheelchair:description": "Combined accessible toilet and baby change, limited space. Staff available to open with Radar key during peak periods."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1360052,
+              51.5032284
+            ],
+            [
+              -0.1358728,
+              51.5032839
+            ],
+            [
+              -0.1358661,
+              51.5032778
+            ],
+            [
+              -0.1358326,
+              51.5032918
+            ],
+            [
+              -0.1358876,
+              51.5033425
+            ],
+            [
+              -0.1359219,
+              51.5033281
+            ],
+            [
+              -0.1359166,
+              51.5033232
+            ],
+            [
+              -0.136049,
+              51.5032677
+            ],
+            [
+              -0.1360548,
+              51.5032731
+            ],
+            [
+              -0.1360883,
+              51.503259
+            ],
+            [
+              -0.1360334,
+              51.5032083
+            ],
+            [
+              -0.135999,
+              51.5032227
+            ],
+            [
+              -0.1360052,
+              51.5032284
+            ]
+          ]
+        ]
+      },
+      "id": "way/374959168"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/374959170",
+        "building": "yes",
+        "historic": "column",
+        "man_made": "column"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1357497,
+              51.5035736
+            ],
+            [
+              -0.1357837,
+              51.5035597
+            ],
+            [
+              -0.1357715,
+              51.5035481
+            ],
+            [
+              -0.1357592,
+              51.5035364
+            ],
+            [
+              -0.1357252,
+              51.5035503
+            ],
+            [
+              -0.1357374,
+              51.5035619
+            ],
+            [
+              -0.1357497,
+              51.5035736
+            ]
+          ]
+        ]
+      },
+      "id": "way/374959170"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/374959171",
+        "building": "yes",
+        "historic": "column",
+        "man_made": "column"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1358522,
+              51.5035318
+            ],
+            [
+              -0.13584,
+              51.5035202
+            ],
+            [
+              -0.1358277,
+              51.5035085
+            ],
+            [
+              -0.1358043,
+              51.503518
+            ],
+            [
+              -0.1358166,
+              51.5035297
+            ],
+            [
+              -0.1358288,
+              51.5035413
+            ],
+            [
+              -0.1358522,
+              51.5035318
+            ]
+          ]
+        ]
+      },
+      "id": "way/374959171"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/374959172",
+        "amenity": "cafe",
+        "building": "yes",
+        "indoor_seating": "no",
+        "name": "Malborough Gate Kiosk",
+        "opening_hours": "Mo-Su 09:30-16:00",
+        "outdoor_seating": "no",
+        "toilets:wheelchair": "yes",
+        "wheelchair": "yes",
+        "wheelchair:description": "High counter, take away only, no seating. Deckchairs available (charge) on grass area opposite. Accessible toilets 10m to north."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1357363,
+              51.5032091
+            ],
+            [
+              -0.1357209,
+              51.5031712
+            ],
+            [
+              -0.135793,
+              51.5031599
+            ],
+            [
+              -0.1358017,
+              51.5031814
+            ],
+            [
+              -0.1358333,
+              51.5031765
+            ],
+            [
+              -0.1358172,
+              51.5031371
+            ],
+            [
+              -0.1356621,
+              51.5031615
+            ],
+            [
+              -0.1356847,
+              51.5032172
+            ],
+            [
+              -0.1357363,
+              51.5032091
+            ]
+          ]
+        ]
+      },
+      "id": "way/374959172"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/542451754",
+        "building": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.130551,
+              51.503359
+            ],
+            [
+              -0.130534,
+              51.5032957
+            ],
+            [
+              -0.1304713,
+              51.5033022
+            ],
+            [
+              -0.1304883,
+              51.5033655
+            ],
+            [
+              -0.130551,
+              51.503359
+            ]
+          ]
+        ]
+      },
+      "id": "way/542451754"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/542451755",
+        "amenity": "cafe",
+        "building": "yes",
+        "building:levels": "1",
+        "name": "Colicci Hotdogs",
+        "opening_hours": "Mo-Su 09:00-19:00",
+        "takeaway": "only"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1310171,
+              51.5052178
+            ],
+            [
+              -0.1310511,
+              51.5052165
+            ],
+            [
+              -0.1310655,
+              51.5052057
+            ],
+            [
+              -0.1310613,
+              51.5051622
+            ],
+            [
+              -0.1310119,
+              51.505164
+            ],
+            [
+              -0.1310171,
+              51.5052178
+            ]
+          ]
+        ]
+      },
+      "id": "way/542451755"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/887536592",
+        "building": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1306947,
+              51.50475
+            ],
+            [
+              -0.1306376,
+              51.5047619
+            ],
+            [
+              -0.1306263,
+              51.5047409
+            ],
+            [
+              -0.1304588,
+              51.5047758
+            ],
+            [
+              -0.1305019,
+              51.5048558
+            ],
+            [
+              -0.1307264,
+              51.504809
+            ],
+            [
+              -0.1306947,
+              51.50475
+            ]
+          ]
+        ]
+      },
+      "id": "way/887536592"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/887536593",
+        "building": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1307212,
+              51.5047096
+            ],
+            [
+              -0.1308129,
+              51.5046894
+            ],
+            [
+              -0.1307388,
+              51.504557
+            ],
+            [
+              -0.130646,
+              51.5045764
+            ],
+            [
+              -0.1307212,
+              51.5047096
+            ]
+          ]
+        ]
+      },
+      "id": "way/887536593"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/887536594",
+        "building": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1307388,
+              51.504557
+            ],
+            [
+              -0.1306467,
+              51.5043858
+            ],
+            [
+              -0.1305539,
+              51.5044051
+            ],
+            [
+              -0.1305766,
+              51.5044474
+            ],
+            [
+              -0.130646,
+              51.5045764
+            ],
+            [
+              -0.1307388,
+              51.504557
+            ]
+          ]
+        ]
+      },
+      "id": "way/887536594"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/887536595",
+        "building": "yes",
+        "name": "St James's Park Office"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1302406,
+              51.5046397
+            ],
+            [
+              -0.1302501,
+              51.5044394
+            ],
+            [
+              -0.1302523,
+              51.5043912
+            ],
+            [
+              -0.1301072,
+              51.5043885
+            ],
+            [
+              -0.1300964,
+              51.5046175
+            ],
+            [
+              -0.1301688,
+              51.5046384
+            ],
+            [
+              -0.1302406,
+              51.5046397
+            ]
+          ]
+        ]
+      },
+      "id": "way/887536595"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/887536596",
+        "building": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1302501,
+              51.5044394
+            ],
+            [
+              -0.1305419,
+              51.5044468
+            ],
+            [
+              -0.1305451,
+              51.5043986
+            ],
+            [
+              -0.1302523,
+              51.5043912
+            ],
+            [
+              -0.1302501,
+              51.5044394
+            ]
+          ]
+        ]
+      },
+      "id": "way/887536596"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/887536597",
+        "amenity": "toilets",
+        "building": "toilets",
+        "fee": "yes",
+        "payment:apple_pay": "yes",
+        "payment:cash": "yes",
+        "payment:google_pay": "yes",
+        "payment:paywave": "yes",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1301257,
+              51.5048538
+            ],
+            [
+              -0.1301861,
+              51.5048229
+            ],
+            [
+              -0.1301004,
+              51.5047578
+            ],
+            [
+              -0.13004,
+              51.5047887
+            ],
+            [
+              -0.1301257,
+              51.5048538
+            ]
+          ]
+        ]
+      },
+      "id": "way/887536597"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/951721975",
+        "building": "yes",
+        "height": "0.5",
+        "historic": "memorial",
+        "memorial": "war_memorial"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1295886,
+              51.5045067
+            ],
+            [
+              -0.1295654,
+              51.5044413
+            ],
+            [
+              -0.1295734,
+              51.5044402
+            ],
+            [
+              -0.1295675,
+              51.5044234
+            ],
+            [
+              -0.1295465,
+              51.5044263
+            ],
+            [
+              -0.1295488,
+              51.5044328
+            ],
+            [
+              -0.1294618,
+              51.5044447
+            ],
+            [
+              -0.1294592,
+              51.5044374
+            ],
+            [
+              -0.1294412,
+              51.5044399
+            ],
+            [
+              -0.1294472,
+              51.5044569
+            ],
+            [
+              -0.1294556,
+              51.5044557
+            ],
+            [
+              -0.1294789,
+              51.5045215
+            ],
+            [
+              -0.1294717,
+              51.5045225
+            ],
+            [
+              -0.1294775,
+              51.5045389
+            ],
+            [
+              -0.1294961,
+              51.5045363
+            ],
+            [
+              -0.1294934,
+              51.5045288
+            ],
+            [
+              -0.1295781,
+              51.5045172
+            ],
+            [
+              -0.1295811,
+              51.5045259
+            ],
+            [
+              -0.1296014,
+              51.5045231
+            ],
+            [
+              -0.1295952,
+              51.5045058
+            ],
+            [
+              -0.1295886,
+              51.5045067
+            ]
+          ]
+        ]
+      },
+      "id": "way/951721975"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1113609658",
+        "building": "air_shaft",
+        "name": "Storey's Gate Jubilee line shaft",
+        "operator": "London Undergroud"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1299983,
+              51.501495
+            ],
+            [
+              -0.1299921,
+              51.5015502
+            ],
+            [
+              -0.1301317,
+              51.5015563
+            ],
+            [
+              -0.1301379,
+              51.5015011
+            ],
+            [
+              -0.1299983,
+              51.501495
+            ]
+          ]
+        ]
+      },
+      "id": "way/1113609658"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1187551170",
+        "building": "yes",
+        "historic": "memorial",
+        "memorial": "war_memorial",
+        "memorial:conflict": "Boer_Wars",
+        "memorial:conflict:wikidata": "Q1676845",
+        "name": "The Royal Artillery Boer War Memorial",
+        "source": "survey",
+        "wikidata": "Q26271644"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1310886,
+              51.5054575
+            ],
+            [
+              -0.1310592,
+              51.5054328
+            ],
+            [
+              -0.1309858,
+              51.5054667
+            ],
+            [
+              -0.1310152,
+              51.5054914
+            ],
+            [
+              -0.1310886,
+              51.5054575
+            ]
+          ]
+        ]
+      },
+      "id": "way/1187551170"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/16022806",
+        "addr:housename": "Duck Island Cottage",
+        "building": "yes",
+        "historic": "building",
+        "name": "Duck Island Cottage",
+        "type": "multipolygon",
+        "wikidata": "Q27081476",
+        "@geometry": "bounds"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1302059,
+              51.502926
+            ],
+            [
+              -0.1300031,
+              51.502926
+            ],
+            [
+              -0.1300031,
+              51.5030698
+            ],
+            [
+              -0.1302059,
+              51.5030698
+            ],
+            [
+              -0.1302059,
+              51.502926
+            ]
+          ]
+        ]
+      },
+      "id": "relation/16022806"
+    }
+  ]
+}

@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ParkSense</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            background: #000;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .phone-frame {
+            width: 375px;
+            height: 812px;
+            background: #000;
+            border-radius: 40px;
+            padding: 8px;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
+        }
+
+        .screen {
+            width: 100%;
+            height: 100%;
+            border-radius: 32px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .page {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* 1-1 首页 - 完全按照设计图 */
+        .home-page {
+            background: linear-gradient(180deg, #8BC34A 0%, #689F38 50%, #33691E 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 80px 40px;
+        }
+
+        .app-title {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .app-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 100px;
+            font-weight: 400;
+        }
+
+        .park-selector {
+            width: 100%;
+            max-width: 280px;
+            margin-bottom: 80px;
+        }
+
+        .dropdown-main {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .dropdown-list {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 8px;
+            overflow: hidden;
+            display: none;
+        }
+
+        .dropdown-list.show {
+            display: block;
+        }
+
+        .park-item {
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .park-item:last-child {
+            border-bottom: none;
+        }
+
+        .park-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .park-item.selected {
+            background: rgba(255, 255, 255, 0.25);
+            font-weight: 600;
+        }
+
+        .start-button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            padding: 16px 60px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .start-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* 2-1-1 公园详情页 - 按照设计图 */
+        .park-detail-page {
+            background: white;
+            position: relative;
+        }
+
+        .park-hero {
+            height: 300px;
+            background: url('bg.jpg') center/cover;
+            position: relative;
+        }
+
+        .park-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            padding: 40px 20px 20px;
+        }
+
+        .park-name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .park-description {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .weather-info {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .weather-icon {
+            margin-right: 8px;
+        }
+
+        /* 独立天气图层 */
+        .weather-layer {
+            position: absolute;
+            left: 16px;
+            bottom: 16px;
+            background: rgba(0, 0, 0, 0.35);
+            color: #fff;
+            padding: 10px 12px;
+            border-radius: 10px;
+            backdrop-filter: blur(2px);
+            max-width: calc(100% - 32px);
+        }
+
+        .content-section {
+            padding: 20px;
+        }
+
+        .explore-title {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .route-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .route-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 18px 24px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .route-btn.secondary {
+            background: #81C784;
+        }
+
+        .route-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        }
+
+        .bottom-nav {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #E0E0E0;
+            display: flex;
+            justify-content: space-around;
+            padding: 16px 0;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #4CAF50;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .nav-item.inactive {
+            color: #999;
+        }
+
+        .nav-icon {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        /* 筛选器页面 - 基于原有设计但优化 */
+        .filter-page {
+            background: #F5F5F5;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .filter-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-top: 40px;
+        }
+
+        .back-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #4CAF50;
+            cursor: pointer;
+            margin-right: 16px;
+        }
+
+        .filter-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .filter-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .filter-section {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .expand-icon {
+            font-size: 14px;
+            color: #999;
+            transition: transform 0.3s;
+        }
+
+        .filter-section.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .section-content {
+            display: none;
+            padding: 16px 20px 24px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .filter-section.expanded .section-content {
+            display: flex;
+        }
+
+        .filter-chip {
+            background: #F5F5F5;
+            color: #333;
+            padding: 10px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .filter-chip:hover {
+            background: #E8E8E8;
+        }
+
+        .filter-chip.selected {
+            background: #4CAF50;
+            color: white;
+            border-color: #4CAF50;
+        }
+
+        /* 推荐结果 */
+        .recommendations {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .rec-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .rec-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #333;
+            margin-left: 8px;
+        }
+
+        .route-card {
+            background: #F8F9FA;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            border-left: 4px solid #4CAF50;
+            position: relative;
+        }
+
+        .route-card.secondary {
+            border-left-color: #81C784;
+        }
+
+        .route-badge {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 16px;
+        }
+
+        .route-badge.secondary {
+            background: #81C784;
+        }
+
+        .route-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            margin-right: 80px;
+        }
+
+        .route-stats {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 16px;
+        }
+
+        .route-stat {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .route-score {
+            font-size: 20px;
+            font-weight: 700;
+            color: #4CAF50;
+            margin-bottom: 12px;
+        }
+
+        .route-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .feature-tag {
+            background: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 16px;
+        }
+
+        .action-btn {
+            width: 100%;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+
+        .action-btn:hover {
+            background: #45A049;
+            transform: translateY(-1px);
+        }
+
+        /* 导航页面 */
+        .navigation-page {
+            background: white;
+            position: relative;
+        }
+
+        .nav-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 50px 20px 16px;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        .nav-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-distance {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .nav-time {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .close-nav {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .map-container {
+            height: 100%;
+            width: 100%;
+            padding-top: 120px;
+        }
+
+        /* Side drawer and overlay */
+        .side-drawer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100%;
+            background: #fff;
+            box-shadow: 4px 0 20px rgba(0,0,0,0.2);
+            transform: translateX(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1500;
+            overflow-y: auto;
+            border-top-left-radius: 32px;
+            border-bottom-left-radius: 32px;
+        }
+
+        .side-drawer.open { transform: translateX(0); }
+
+        .side-drawer-header {
+            padding: 20px;
+            background: #4CAF50;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .side-drawer-title { font-size: 18px; font-weight: 700; }
+
+        .close-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: #fff;
+            font-size: 22px;
+            width: 36px;
+            height: 36px;
+            border-radius: 18px;
+            cursor: pointer;
+        }
+
+        .side-drawer-content { padding: 16px; }
+
+        /* Layer list cards inside sidebar */
+        .layer-list { margin: 12px 0; }
+        .layer-item {
+            display: flex;
+            align-items: center;
+            padding: 14px;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .layer-item:active { transform: scale(0.98); }
+        .layer-item.active {
+            background: #4CAF50;
+            color: #fff;
+            border-color: #4CAF50;
+        }
+        .layer-item .icon { font-size: 22px; width: 28px; text-align: center; margin-right: 10px; }
+        .layer-item .info { flex: 1; }
+        .layer-item .name { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+        .layer-item .status { font-size: 12px; opacity: 0.8; }
+        .drawer-action {
+            width: 100%;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 1400;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .overlay.show { opacity: 1; visibility: visible; }
+
+        .nav-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .nav-alert {
+            background: rgba(76, 175, 80, 0.95);
+            color: white;
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-btn {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #E0E0E0;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            color: #333;
+        }
+
+        .nav-btn.primary {
+            background: #4CAF50;
+            color: white;
+            border-color: #4CAF50;
+        }
+
+        /* 加载动画 */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+
+        .spinner {
+            width: 32px;
+            height: 32px;
+            border: 3px solid #E0E0E0;
+            border-top: 3px solid #4CAF50;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="screen">
+            <!-- 1-1 首页 -->
+            <div class="page home-page active" id="homePage">
+                <h1 class="app-title">Parksense</h1>
+                <p class="app-subtitle">Enjoy calmer walks with minimal screen time.</p>
+                
+                <div class="park-selector">
+                    <div class="dropdown-main" onclick="toggleParkDropdown()">
+                        <span id="selectedParkName">Select Your Park Today</span>
+                        <span>⌄</span>
+                    </div>
+                    <div class="dropdown-list" id="parkDropdown">
+                        <div class="park-item" onclick="selectPark('Hyde Park')">Hyde Park</div>
+                        <div class="park-item selected" onclick="selectPark('Saint James Park')">Saint James's Park</div>
+                        <div class="park-item" onclick="selectPark('Green Park')">Green Park</div>
+                        <div class="park-item" onclick="selectPark('Richmond Park')">Richmond Park</div>
+                    </div>
+                </div>
+
+                <button class="start-button" onclick="showParkDetail()">Start</button>
+            </div>
+
+            <!-- 2-1-1 公园详情页 -->
+            <div class="page park-detail-page" id="parkDetailPage">
+                <div class="park-hero">
+                    <div class="park-info">
+                        <div class="park-name">
+                            <span>Saint James's Park</span>
+                            <span>⌄</span>
+                        </div>
+                        <div class="park-description">
+                            St James's Park is one of London's eight Royal Parks and its 57 acres are bordered by famous landmarks such as Buckingham Palace, Clarence House. The closest Tube station to St James's Park is St James's Park (District and Circle lines), which is a five-minute walk away.
+                        </div>
+                        <div class="weather-info">
+                            <span class="weather-icon">🌤️</span>
+                            <span>Light Rain after 4pm<br>Best time to visit today: 10:00-14:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="explore-title">Explore by...</div>
+                    
+                    <div class="route-buttons">
+                        <button class="route-btn" onclick="showFilters()">Custom my routes</button>
+                        <button class="route-btn secondary" onclick="showOthersRoutes()">Follow others' routes</button>
+                    </div>
+
+                    <div class="bottom-nav">
+                        <div class="nav-item">
+                            <div class="nav-icon">🗺️</div>
+                            <div>Explore</div>
+                        </div>
+                        <div class="nav-item inactive">
+                            <div class="nav-icon">🧭</div>
+                            <div>Routes</div>
+                        </div>
+                        <div class="nav-item inactive">
+                            <div class="nav-icon">👤</div>
+                            <div>Profile</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 筛选器页面 -->
+            <div class="page filter-page" id="filterPage">
+                <div class="filter-header">
+                    <button class="back-btn" onclick="showParkDetail()">←</button>
+                    <h2 class="filter-title">Build my own walk</h2>
+                </div>
+
+                <p class="filter-subtitle">
+                    We'll favour calmer, shaded segments when possible.
+                </p>
+
+                <!-- Atmosphere -->
+                <div class="filter-section" data-category="atmosphere">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span class="section-title">Atmosphere</span>
+                        <span class="expand-icon">⌄</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="filter-chip" data-filter="atmosphere" data-value="quiet">Quiet</div>
+                        <div class="filter-chip" data-filter="atmosphere" data-value="shaded">Shaded</div>
+                        <div class="filter-chip" data-filter="atmosphere" data-value="scenic">Scenic</div>
+                    </div>
+                </div>
+
+                <!-- Wildlife & Islands -->
+                <div class="filter-section" data-category="wildlife">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span class="section-title">Wildlife & Islands</span>
+                        <span class="expand-icon">⌄</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="filter-chip" data-filter="wildlife" data-value="birds">Birds</div>
+                        <div class="filter-chip" data-filter="wildlife" data-value="ducks">Ducks</div>
+                        <div class="filter-chip" data-filter="wildlife" data-value="swans">Swans</div>
+                        <div class="filter-chip" data-filter="wildlife" data-value="squirrels">Squirrels</div>
+                    </div>
+                </div>
+
+                <!-- Plants & Seasonal - 默认展开 -->
+                <div class="filter-section expanded" data-category="plants">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span class="section-title">Plants & Seasonal</span>
+                        <span class="expand-icon">⌃</span>
+                    </div>
+                    <div class="section-content" style="display: flex;">
+                        <div class="filter-chip" data-filter="plants" data-value="daffodils">Daffodils</div>
+                        <div class="filter-chip" data-filter="plants" data-value="tulips">Tulips</div>
+                        <div class="filter-chip selected" data-filter="plants" data-value="cherry">Cherry blossoms</div>
+                        <div class="filter-chip selected" data-filter="plants" data-value="autumn">Autumn colours</div>
+                        <div class="filter-chip" data-filter="plants" data-value="seasonal">Seasonal highlights</div>
+                    </div>
+                </div>
+
+                <!-- Infrastructure -->
+                <div class="filter-section" data-category="infrastructure">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span class="section-title">Infrastructure</span>
+                        <span class="expand-icon">⌄</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="filter-chip" data-filter="infrastructure" data-value="toilets">Toilets</div>
+                        <div class="filter-chip" data-filter="infrastructure" data-value="benches">Benches</div>
+                        <div class="filter-chip" data-filter="infrastructure" data-value="water">Water fountains</div>
+                        <div class="filter-chip" data-filter="infrastructure" data-value="cafes">Cafes</div>
+                    </div>
+                </div>
+
+                <!-- Accessibility & Path -->
+                <div class="filter-section" data-category="accessibility">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span class="section-title">Accessibility & Path</span>
+                        <span class="expand-icon">⌄</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="filter-chip" data-filter="accessibility" data-value="wheelchair">Wheelchair accessible</div>
+                        <div class="filter-chip" data-filter="accessibility" data-value="paved">Paved paths</div>
+                        <div class="filter-chip" data-filter="accessibility" data-value="flat">Flat terrain</div>
+                    </div>
+                </div>
+
+                <!-- Route intent -->
+                <div class="filter-section" data-category="duration">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span class="section-title">Route intent</span>
+                        <span class="expand-icon">⌄</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="filter-chip" data-filter="duration" data-value="15">15 minutes</div>
+                        <div class="filter-chip" data-filter="duration" data-value="30">30 minutes</div>
+                        <div class="filter-chip" data-filter="duration" data-value="60">1 hour</div>
+                    </div>
+                </div>
+
+                <!-- 智能推荐区域 -->
+                <div class="recommendations">
+                    <div class="rec-header">
+                        <span>🏆</span>
+                        <h3 class="rec-title">Top 2 Recommendations</h3>
+                    </div>
+                    
+                    <div id="loadingRec" class="loading">
+                        <div class="spinner"></div>
+                    </div>
+
+                    <div id="recResults" class="hidden">
+                        <!-- Results will be generated by JavaScript -->
+                    </div>
+                </div>
+
+                <button class="action-btn" onclick="startNavigation()">
+                    Start Navigation
+                </button>
+            </div>
+
+            <!-- 导航页面 -->
+            <div class="page navigation-page" id="navigationPage">
+                <div class="nav-top">
+                    <div class="nav-info">
+                        <div>
+                            <div class="nav-distance" id="navDistance">1.2 km</div>
+                            <div class="nav-time" id="navTime">~ 15 min</div>
+                        </div>
+                        <div>
+                            <button class="close-nav" onclick="showFilters()" style="margin-right:8px;">✕</button>
+                            <button class="close-nav" onclick="openDrawer()">☰</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-container" id="mapContainer">
+                    <!-- 地图将在这里加载 -->
+                </div>
+
+                <div class="nav-controls">
+                    <div class="nav-alert" id="navAlert">
+                        🦆 Wildlife spot 100m ahead, please slow down
+                    </div>
+                    <div class="nav-buttons">
+                        <button class="nav-btn" onclick="takePhoto()">📷 Photo</button>
+                        <button class="nav-btn" onclick="shareRoute()">📤 Share</button>
+                        <button class="nav-btn primary" onclick="openNativeNav()">🚀 GO!</button>
+                        <button class="nav-btn primary" onclick="recalculate()">🔄 Recalculate</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Sidebar and overlay -->
+            <div class="side-drawer" id="sideDrawer">
+                <div class="side-drawer-header">
+                    <div class="side-drawer-title">🗂 Layers</div>
+                    <button class="close-btn" onclick="closeDrawer()">×</button>
+                </div>
+                <div class="side-drawer-content">
+                    <div class="layer-list" id="layerList"></div>
+                    <button class="drawer-action" onclick="autoLoadAllLayers()">📊 Auto Load All</button>
+                </div>
+            </div>
+            <div class="overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/route-scoring.js"></script>
+    <!-- Optional inline POI data used only when running from file:// to avoid CORS -->
+    <script id="poiInline" type="application/json"></script>
+    
+    <script>
+        // 全局变量
+        let map = null;
+        let selectedFilters = {
+            atmosphere: [],
+            wildlife: [],
+            plants: ['cherry', 'autumn'], // 默认选中
+            infrastructure: [],
+            accessibility: [],
+            duration: null
+        };
+        let recommendedRoutes = [];
+
+        // 模拟路线数据
+        const routeData = [
+            {
+                id: 'lake_circuit',
+                name: 'Lake Center Loop',
+                distance: 1200,
+                estimatedTime: 15,
+                difficulty: 'easy',
+                wildlifeScore: 0.9,
+                shadeScore: 0.7,
+                quietScore: 0.6,
+                scenicScore: 0.9,
+                facilityScore: 0.8,
+                seasonalFeatures: {
+                    cherry: 0.3,
+                    autumn: 0.8,
+                    daffodils: 0.2,
+                    tulips: 0.1
+                }
+            },
+            {
+                id: 'royal_path',
+                name: 'Royal Mile',
+                distance: 800,
+                estimatedTime: 10,
+                difficulty: 'easy',
+                wildlifeScore: 0.6,
+                shadeScore: 0.5,
+                quietScore: 0.4,
+                scenicScore: 0.7,
+                facilityScore: 0.9,
+                seasonalFeatures: {
+                    cherry: 0.6,
+                    autumn: 0.5,
+                    daffodils: 0.4,
+                    tulips: 0.3
+                }
+            },
+            {
+                id: 'nature_trail',
+                name: 'Shaded Trail',
+                distance: 1500,
+                estimatedTime: 20,
+                difficulty: 'moderate',
+                wildlifeScore: 0.7,
+                shadeScore: 0.9,
+                quietScore: 0.8,
+                scenicScore: 0.6,
+                facilityScore: 0.4,
+                seasonalFeatures: {
+                    cherry: 0.1,
+                    autumn: 0.9,
+                    daffodils: 0.3,
+                    tulips: 0.2
+                }
+            }
+        ];
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            setupFilterListeners();
+            generateRecommendations();
+        });
+
+        // 页面切换
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        function showHome() {
+            showPage('homePage');
+        }
+
+        function showParkDetail() {
+            showPage('parkDetailPage');
+        }
+
+        function showFilters() {
+            showPage('filterPage');
+        }
+
+        function showOthersRoutes() {
+            alert('Other routes feature is under development...');
+        }
+
+        function startNavigation() {
+            showPage('navigationPage');
+            initMap();
+            renderLayerList();
+            // Auto load POI layer on start
+            activeLayerState.poi = true;
+            loadPOILayer();
+        }
+
+        // Sidebar controls
+        function openDrawer() {
+            const drawer = document.getElementById('sideDrawer');
+            const overlay = document.getElementById('drawerOverlay');
+            if (drawer) drawer.classList.add('open');
+            if (overlay) overlay.classList.add('show');
+        }
+
+        function closeDrawer() {
+            const drawer = document.getElementById('sideDrawer');
+            const overlay = document.getElementById('drawerOverlay');
+            if (drawer) drawer.classList.remove('open');
+            if (overlay) overlay.classList.remove('show');
+        }
+
+        // Layer management
+        const LAYER_DEFS = [
+            { key: 'boundary', name: 'Park Boundary', icon: '🧭' },
+            { key: 'trails', name: 'Trails Grid', icon: '👣' },
+            { key: 'vegetation', name: 'Vegetation', icon: '🌿' },
+            { key: 'water', name: 'Water Features', icon: '💧' },
+            { key: 'facilities', name: 'Facilities', icon: '🏛️' },
+            { key: 'poi', name: 'Points of Interest', icon: '📍' }
+        ];
+
+        const activeLayerState = {};
+
+        function renderLayerList() {
+            const list = document.getElementById('layerList');
+            if (!list) return;
+            list.innerHTML = '';
+            LAYER_DEFS.forEach(def => {
+                const item = document.createElement('div');
+                item.className = 'layer-item' + (activeLayerState[def.key] ? ' active' : '');
+                item.onclick = () => toggleLayer(def.key);
+                item.innerHTML = `
+                    <div class="icon">${def.icon}</div>
+                    <div class="info">
+                        <div class="name">${def.name}</div>
+                        <div class="status" id="status-${def.key}">${activeLayerState[def.key] ? 'Loaded' : 'Not loaded'}</div>
+                    </div>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        function toggleLayer(key) {
+            activeLayerState[key] = !activeLayerState[key];
+            const status = document.getElementById(`status-${key}`);
+            if (status) status.textContent = activeLayerState[key] ? 'Loaded' : 'Not loaded';
+            renderLayerList();
+            if (key === 'poi') {
+                if (activeLayerState[key]) {
+                    loadPOILayer();
+                } else {
+                    removePOILayer();
+                }
+            }
+        }
+
+        function autoLoadAllLayers() {
+            LAYER_DEFS.forEach(d => activeLayerState[d.key] = true);
+            renderLayerList();
+            // placeholder: hook to real loading if needed
+        }
+
+        // ---------- POI GeoJSON loading ----------
+        let poiLayer = null;
+
+        async function loadPOILayer() {
+            try {
+                if (poiLayer) return;
+                // If running from file://, use inline fallback
+                if (location.protocol === 'file:') {
+                    const inlineEl = document.getElementById('poiInline');
+                    let geojson = null;
+                    if (inlineEl && inlineEl.textContent.trim().length > 0) {
+                        try { geojson = JSON.parse(inlineEl.textContent); } catch(_) {}
+                    }
+                    if (!geojson) {
+                        // Generate lightweight demo POIs near St James's Park
+                        const base = [51.5036, -0.1345];
+                        const points = [];
+                        for (let i = 0; i < 300; i++) {
+                            const lat = base[0] + (Math.random() - 0.5) * 0.01;
+                            const lng = base[1] + (Math.random() - 0.5) * 0.02;
+                            points.push({ type: 'Feature', geometry: { type: 'Point', coordinates: [lng, lat] }, properties: {} });
+                        }
+                        geojson = { type: 'FeatureCollection', features: points };
+                    }
+                    poiLayer = L.geoJSON(geojson, {
+                        pointToLayer: function(feature, latlng) {
+                            return L.circleMarker(latlng, {
+                                radius: 3,
+                                color: '#6d4c41',
+                                weight: 0,
+                                fillColor: '#8d6e63',
+                                fillOpacity: 0.9
+                            });
+                        }
+                    }).addTo(map);
+                    const status = document.getElementById('status-poi');
+                    if (status) status.textContent = 'Loaded';
+                    return;
+                }
+
+                // Try multiple relative paths for robustness
+                const candidatePaths = [
+                    './local-nav/local-nav/park-data/park-data/poi_all.geojson',
+                    'local-nav/local-nav/park-data/park-data/poi_all.geojson',
+                    '../local-nav/local-nav/park-data/park-data/poi_all.geojson'
+                ];
+
+                let geojson = null;
+                let lastError = null;
+                for (const url of candidatePaths) {
+                    try {
+                        const resp = await fetch(url);
+                        if (resp.ok) {
+                            geojson = await resp.json();
+                            break;
+                        } else {
+                            lastError = new Error('HTTP ' + resp.status);
+                        }
+                    } catch (e) {
+                        lastError = e;
+                    }
+                }
+
+                if (!geojson) {
+                    console.error('POI fetch failed', lastError);
+                    return;
+                }
+                poiLayer = L.geoJSON(geojson, {
+                    pointToLayer: function(feature, latlng) {
+                        return L.circleMarker(latlng, {
+                            radius: 3,
+                            color: '#6d4c41',
+                            weight: 0,
+                            fillColor: '#8d6e63',
+                            fillOpacity: 0.9
+                        });
+                    }
+                }).addTo(map);
+                const status = document.getElementById('status-poi');
+                if (status) status.textContent = 'Loaded';
+            } catch (e) {
+                console.error('Failed to load POI GeoJSON', e);
+            }
+        }
+
+        function removePOILayer() {
+            if (poiLayer) {
+                map.removeLayer(poiLayer);
+                poiLayer = null;
+            }
+            const status = document.getElementById('status-poi');
+            if (status) status.textContent = 'Not loaded';
+        }
+
+        // 公园选择
+        function toggleParkDropdown() {
+            const dropdown = document.getElementById('parkDropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        function selectPark(parkName) {
+            document.getElementById('selectedParkName').textContent = parkName;
+            document.querySelectorAll('.park-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+            event.target.classList.add('selected');
+            document.getElementById('parkDropdown').classList.remove('show');
+        }
+
+        // 筛选器
+        function toggleSection(header) {
+            const section = header.parentElement;
+            section.classList.toggle('expanded');
+        }
+
+        function setupFilterListeners() {
+            document.querySelectorAll('.filter-chip').forEach(chip => {
+                chip.addEventListener('click', function() {
+                    const filter = this.dataset.filter;
+                    const value = this.dataset.value;
+                    
+                    if (filter === 'duration') {
+                        // 单选
+                        document.querySelectorAll(`[data-filter="${filter}"]`).forEach(el => {
+                            if (el !== this) el.classList.remove('selected');
+                        });
+                        
+                        if (this.classList.contains('selected')) {
+                            this.classList.remove('selected');
+                            selectedFilters[filter] = null;
+                        } else {
+                            this.classList.add('selected');
+                            selectedFilters[filter] = parseInt(value);
+                        }
+                    } else {
+                        // 多选
+                        this.classList.toggle('selected');
+                        
+                        if (!selectedFilters[filter]) selectedFilters[filter] = [];
+                        
+                        if (this.classList.contains('selected')) {
+                            if (!selectedFilters[filter].includes(value)) {
+                                selectedFilters[filter].push(value);
+                            }
+                        } else {
+                            selectedFilters[filter] = selectedFilters[filter].filter(v => v !== value);
+                        }
+                    }
+                    
+                    generateRecommendations();
+                });
+            });
+        }
+
+        // 生成推荐 - 核心筛选器算法 ⭐
+        function generateRecommendations() {
+            const loadingEl = document.getElementById('loadingRec');
+            const resultsEl = document.getElementById('recResults');
+            
+            loadingEl.classList.remove('hidden');
+            resultsEl.classList.add('hidden');
+            
+            setTimeout(() => {
+                // 筛选器算法核心逻辑
+                recommendedRoutes = routeData.map(route => {
+                    let score = 0.5; // 基础分数
+                    let reasons = [];
+
+                    // 环境氛围评分
+                    if (selectedFilters.atmosphere.includes('quiet') && route.quietScore > 0.6) {
+                        score += 0.2;
+                        reasons.push('Quiet Environment');
+                    }
+                    
+                    if (selectedFilters.atmosphere.includes('shaded') && route.shadeScore > 0.6) {
+                        score += 0.15;
+                        reasons.push('Plenty of Shade');
+                    }
+                    
+                    if (selectedFilters.atmosphere.includes('scenic') && route.scenicScore > 0.7) {
+                        score += 0.15;
+                        reasons.push('Beautiful Scenery');
+                    }
+
+                    // 野生动物评分
+                    if (selectedFilters.wildlife.length > 0 && route.wildlifeScore > 0.7) {
+                        score += 0.2;
+                        reasons.push('Rich Wildlife');
+                    }
+
+                    // 季节性植物评分
+                    selectedFilters.plants.forEach(plant => {
+                        if (route.seasonalFeatures[plant] && route.seasonalFeatures[plant] > 0.5) {
+                            score += 0.1;
+                            reasons.push(`${plant}`);
+                        }
+                    });
+
+                    // 设施评分
+                    if (selectedFilters.infrastructure.length > 0 && route.facilityScore > 0.7) {
+                        score += 0.1;
+                        reasons.push('Complete Facilities');
+                    }
+
+                    // 时长匹配
+                    if (selectedFilters.duration) {
+                        const timeDiff = Math.abs(route.estimatedTime - selectedFilters.duration);
+                        if (timeDiff <= 5) {
+                            score += 0.1;
+                            reasons.push('Suitable Duration');
+                        }
+                    }
+
+                    return {
+                        ...route,
+                        score: Math.min(score, 1.0),
+                        reasons: reasons.slice(0, 4)
+                    };
+                }).sort((a, b) => b.score - a.score);
+
+                displayRecommendations();
+                
+                loadingEl.classList.add('hidden');
+                resultsEl.classList.remove('hidden');
+            }, 1500);
+        }
+
+        function displayRecommendations() {
+            const resultsEl = document.getElementById('recResults');
+            
+            let html = '';
+            recommendedRoutes.slice(0, 2).forEach((route, index) => {
+                const isSecondary = index > 0;
+                const scorePercentage = Math.round(route.score * 100);
+                
+                html += `
+                    <div class="route-card ${isSecondary ? 'secondary' : ''}">
+                        <div class="route-badge ${isSecondary ? 'secondary' : ''}">
+                            ${index === 0 ? '🏆 Recommended' : '🥈 Alternative'}
+                        </div>
+                        <div class="route-score">${scorePercentage}</div>
+                        <div class="route-name">${route.name}</div>
+                        <div class="route-stats">
+                            <span class="route-stat">📏 ${route.distance}m</span>
+                            <span class="route-stat">⏱️ ${route.estimatedTime} min</span>
+                            <span class="route-stat">🚶 ${route.difficulty}</span>
+                        </div>
+                        <div class="route-features">
+                            ${route.reasons.map(reason => `<span class="feature-tag">${reason}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            resultsEl.innerHTML = html;
+        }
+
+        // 地图初始化
+        function initMap() {
+            if (map) {
+                map.remove();
+            }
+            
+            const mapContainer = document.getElementById('mapContainer');
+            map = L.map(mapContainer, { 
+                zoomControl: false,
+                attributionControl: false 
+            }).setView([51.5031, -0.1343], 16);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+            
+            // Add route
+            if (recommendedRoutes.length > 0) {
+                const route = recommendedRoutes[0];
+                
+                const routePath = [
+                    [51.5031, -0.1343],
+                    [51.5035, -0.1340],
+                    [51.5038, -0.1335],
+                    [51.5040, -0.1330],
+                    [51.5035, -0.1325],
+                    [51.5031, -0.1343]
+                ];
+                
+                L.polyline(routePath, {
+                    color: '#4CAF50',
+                    weight: 4,
+                    opacity: 0.8
+                }).addTo(map);
+                
+                L.marker([51.5031, -0.1343]).addTo(map).bindPopup('Start').openPopup();
+                
+                document.getElementById('navDistance').textContent = `${(route.distance / 1000).toFixed(1)} km`;
+                document.getElementById('navTime').textContent = `~ ${route.estimatedTime} min`;
+            }
+        }
+
+        // Interactions
+        function takePhoto() {
+            const alerts = [
+                '📸 Wildlife sighting recorded! Data updated.',
+                '🦆 Duck group spotted. Thanks for your contribution!',
+                '🐿️ Squirrel sighting saved.',
+                '🦢 Swan observation added.'
+            ];
+            
+            const randomAlert = alerts[Math.floor(Math.random() * alerts.length)];
+            document.getElementById('navAlert').textContent = randomAlert;
+            
+            setTimeout(() => {
+                document.getElementById('navAlert').textContent = '🦆 Wildlife spot 100m ahead, please slow down';
+            }, 3000);
+        }
+
+        function shareRoute() {
+            document.getElementById('navAlert').textContent = '📤 Share link generated and copied to clipboard';
+            
+            setTimeout(() => {
+                document.getElementById('navAlert').textContent = '🦆 Wildlife spot 100m ahead, please slow down';
+            }, 3000);
+        }
+
+        function recalculate() {
+            document.getElementById('navAlert').textContent = '🔄 Recalculating optimal route...';
+            
+            setTimeout(() => {
+                document.getElementById('navAlert').textContent = '✅ A better route is ready, avoiding crowded areas';
+            }, 2000);
+        }
+
+        // Open native navigation app with geo: (Android) or maps URLs (iOS/Desktop)
+        function openNativeNav() {
+            const start = [51.5031, -0.1343];
+            // Prefer navigator.geolocation if available to get current position
+            const openWithCoords = (lat, lng) => {
+                const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+                const isAndroid = /Android/.test(navigator.userAgent);
+                if (isAndroid) {
+                    // geo:lat,lng?q=lat,lng(Label)
+                    window.location.href = `geo:${lat},${lng}?q=${lat},${lng}(Destination)`;
+                } else if (isIOS) {
+                    // Apple Maps
+                    window.location.href = `http://maps.apple.com/?daddr=${lat},${lng}&dirflg=w`;
+                } else {
+                    // Fallback to Google Maps
+                    window.open(`https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}&travelmode=walking`, '_blank');
+                }
+            };
+            try {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        pos => openWithCoords(start[0], start[1]),
+                        () => openWithCoords(start[0], start[1]),
+                        { maximumAge: 60000, timeout: 3000 }
+                    );
+                } else {
+                    openWithCoords(start[0], start[1]);
+                }
+            } catch (_) {
+                openWithCoords(start[0], start[1]);
+            }
+        }
+
+        // 响应式处理
+        window.addEventListener('resize', function() {
+            if (map) {
+                setTimeout(() => {
+                    map.invalidateSize();
+                }, 100);
+            }
+        });
+    </script>
+</body>
+</html>
